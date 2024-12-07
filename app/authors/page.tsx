@@ -18,7 +18,7 @@ export default function AuthorsPage() {
     }, [dispatch])
 
     if (status === 'loading')
-        return <div className="flex items-center justify-center h-screen">
+        return <div className="flex-center h-screen">
             <p className="text-gray-500">Loading authors...</p>
         </div>
     if (status === 'failed') return <p>Error loading authors: {error}</p>
@@ -28,12 +28,12 @@ export default function AuthorsPage() {
     return (
         <div className="min-h-screen flex">
             <Sidebar className="hidden md:block w-64 top-0 border-r sticky self-stretch" />
-            <div className="flex-1  self-stretch">
+            <div className="flex-1 self-stretch">
                 <MobileHeader />
                 <div className="xl:pr-[21.88rem] xl:pl-[12.5rem] pr-5 pl-5 lg:py-[3.75rem] py-0">
-                    <h1 className="flex text-[#030303] font-[Inter] text-[1rem] font-medium leading-[1.5rem] lg:mb-[2.5rem] lg:mt-0 mt-6 mb-5 ">
+                    <h1 className="header-title spacing-lg">
                         Explore
-                        <span className='text-[rgba(3,3,3,0.60)] leading-[1.5rem] font-[300] text-[0.875rem] font-[Inter] '>
+                        <span className="text-[rgba(3,3,3,0.60)] leading-[1.5rem] font-[300] text-[0.875rem]">
                             &nbsp;by Author
                         </span>
                     </h1>
@@ -41,8 +41,7 @@ export default function AuthorsPage() {
                         {groupedAuthors.map((row, rowIndex) => (
                             <div
                                 key={rowIndex}
-                                className={`grid gap-4 ${row.length === 1 ? 'grid-cols-1' : 'grid-cols-2'
-                                    }`}
+                                className={`grid gap-4 ${row.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}
                             >
                                 {row.map((author) => (
                                     <AuthorCard
@@ -50,7 +49,7 @@ export default function AuthorsPage() {
                                         name={author.name}
                                         booksCount={author.booksCount}
                                         rowLength={row.length}
-                                        imageSrc={`/placeholder.svg?height=40&width=40`}
+                                        imageSrc={`/profile.png?height=40&width=40`}
                                     />
                                 ))}
                             </div>

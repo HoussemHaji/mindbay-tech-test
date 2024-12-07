@@ -14,7 +14,6 @@ export default function BookDetailView({
 
     return (
         <div className="p-6 max-w-2xl mx-auto">
-            <h1 className="text-lg font-semibold mb-6">Book Overview</h1>
             <div className="flex flex-col items-center gap-6 mb-8">
 
                 <img
