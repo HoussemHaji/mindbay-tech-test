@@ -4,7 +4,15 @@
 
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, 'Neulis Sans', sans-serif;
+}
+
+@font-face {
+  font-family: 'Neulis Sans';
+  src: url('fonts/Neulis-Regular.woff2') format('woff2'),
+       url('fonts/Neulis-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
 }
 
 @layer base {
@@ -69,5 +77,64 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Layout */
+  .layout-container {
+    @apply min-h-screen flex;
+  }
+
+  .layout-sidebar {
+    @apply hidden md:block w-64 top-0 border-r sticky self-stretch;
+  }
+
+  .layout-main {
+    @apply flex-1 self-stretch;
+  }
+
+  /* Content Spacing */
+  .content-padding {
+    @apply xl:pr-[21.88rem] xl:pl-[12.5rem] pr-5 pl-5 lg:py-[3.75rem] py-0;
+  }
+
+  /* Typography */
+  .title-primary {
+    @apply flex text-[#030303] font-neulis-sans text-[1rem] font-medium leading-[1.5rem] lg:mb-[2.5rem] lg:mt-0 mt-6 mb-5;
+  }
+
+  .title-secondary {
+    @apply text-[rgba(3,3,3,0.60)] leading-[1.5rem] font-[300] text-[0.875rem] font-neulis-sans;
+  }
+
+  /* Author Grid */
+  .author-grid {
+    @apply space-y-4;
+  }
+
+  .author-row {
+    @apply grid gap-4;
+  }
+
+  .author-row-single {
+    @apply grid-cols-1;
+  }
+
+  .author-row-double {
+    @apply grid-cols-2;
+  }
+
+  /* States */
+  .loading-screen {
+    @apply flex items-center justify-center h-screen;
+  }
+
+  .loading-text {
+    @apply text-gray-500;
+  }
+
+  .error-message {
+    @apply text-red-500;
   }
 }
