@@ -8,7 +8,7 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export function Sidebar({ className }: SidebarProps) {
     return (
-        <div className={cn("pb-12 h-screen hidden md:block px-[1.25rem] pt-[3.16rem] text-[#6C6C6C] font-inter text-[0.875rem] font-medium leading-[1.375rem] ", className)}>
+        <div className={cn("pb-12 h-screen  px-[1.25rem] pt-[3.16rem] text-[#6C6C6C] bg-[#FCFCFC] font-inter text-[0.875rem] font-medium leading-[1.375rem] ", className)}>
             <div className="space-y-4 ">
                 <div className="flex flex-col gap-[4.74rem] justify-center items-center">
                     <Link href="/" className="flex items-center mb-8">

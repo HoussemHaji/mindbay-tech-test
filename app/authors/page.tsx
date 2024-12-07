@@ -44,11 +44,12 @@ export default function AuthorsPage() {
 
     return (
         <div className="min-h-screen flex">
-            <Sidebar className="w-64 top-0 border-r sticky" />
-            <div className="flex-1">
+            <Sidebar className="hidden md:block w-64 top-0 border-r sticky self-stretch" />
+            <div className="flex-1  self-stretch">
                 <MobileHeader />
-                <div className="md:pr-[21.88rem] md:pl-[12.5rem] px-10 py-[3.75rem]">
-                    <h1 className="flex text-[#030303] font-neulis-sans text-[1rem] font-medium leading-[1.5rem] mb-[2.5rem] ">Explore
+                <div className="xl:pr-[21.88rem] xl:pl-[12.5rem] pr-5 pl-5 lg:py-[3.75rem] py-0">
+                    <h1 className="flex text-[#030303] font-neulis-sans text-[1rem] font-medium leading-[1.5rem] lg:mb-[2.5rem] lg:mt-0 mt-6 mb-5 ">
+                        Explore
                         <span className='text-[rgba(3,3,3,0.60)] leading-[1.5rem] font-[300] text-[0.875rem] font-neulis-sans'>
                             &nbsp;by Author
                         </span>
