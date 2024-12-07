@@ -24,9 +24,10 @@ export default function BookDetailView({
                 <h2 className="text-2xl font-bold text-center">{book.title}</h2>
             </div>
             <div className="space-y-4">
-                <div className="flex items-center justify-center gap-2 text-sm">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-800">
-                        🔥 New York Times Best Seller
+                <div className="flex flex-col items-center justify-center gap-2 text-sm">
+                    <span className="inline-flex items-center p-3 w-full gap-4 rounded-full bg-gray-100 text-orange-800">
+                        🔥
+                        <p>New York Times Best Seller</p>
                     </span>
                     <span className="text-gray-500">
                         Published: {publishedDate}

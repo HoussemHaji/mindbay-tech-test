@@ -56,39 +56,36 @@ export default function AuthorDetailPage() {
     };
 
     return (
-        <div className="md:pb-24">
-            <div className="min-h-screen bg-white md:grid md:grid-cols-2 md:px-[5.62rem]">
-                <div className="md:border-r md:w-[24.5625rem]">
-                    <div className="pt-5 flex flex-col justify-center items-center gap-3 px-5 mt-6 md:py-5 md:pr-5">
-                        <AuthorHeader author={author} bookCount={uniqueBooksByAuthor.length} />
-                        {uniqueBooksByAuthor.map((book, index) => (
-                            <button
-                                key={`${book.primary_isbn13}-${index}`}
-                                onClick={() => handleBookClick(book)}
-                                className="btn"
-                            >
-                                <div className="author-card">
-                                    <h2 className="header-title flex justify-between">
-                                        {book.title}
-                                        <img src="/vector.svg" alt=">" />
-                                    </h2>
-                                    <p className="header-subtitle">Published: {publishedDate}</p>
-                                </div>
-                            </button>
-                        ))}
+        <div className="min-h-screen md:pb-24 bg-white md:grid md:grid-cols-2 md:px-[5.62rem]">
+            <div className="md:border-r md:w-[24.5625rem]">
+                <div className="pt-5 flex flex-col justify-center items-center gap-3 px-5 mt-6 md:py-5 w-full ">
+                    <AuthorHeader author={author} bookCount={uniqueBooksByAuthor.length} />
+                    {uniqueBooksByAuthor.map((book, index) => (
+                        <button
+                            key={`${book.primary_isbn13}-${index}`}
+                            onClick={() => handleBookClick(book)}
+                            className="btn"
+                        >
+                            <div className="author-card">
+                                <h2 className="header-title flex justify-between">
+                                    {book.title}
+                                    <img src="/vector.svg" alt=">" />
+                                </h2>
+                                <p className="header-subtitle">Published: {publishedDate}</p>
+                            </div>
+                        </button>
+                    ))}
+                </div>
+            </div>
+            {/* Right Panel for Larger Screens */}
+            <div className="hidden md:flex md:flex-col md:justify-center">
+                {selectedBook ? (
+                    <BookDetailView book={selectedBook} publishedDate={formattedDate} />
+                ) : (
+                    <div className="flex-center text-[#7E7E7E] bg-[#F7F7F7] font-[Inter] rounded-3xl h-[33.75rem] w-full">
+                        Please start by selecting a book
                     </div>
-                </div>
-
-                {/* Right Panel for Larger Screens */}
-                <div className="hidden md:flex md:flex-col md:justify-center md:items-start px-24">
-                    {selectedBook ? (
-                        <BookDetailView book={selectedBook} publishedDate={formattedDate} />
-                    ) : (
-                        <div className="flex-center text-[#7E7E7E] font-[Inter]">
-                            Please start by selecting a book
-                        </div>
-                    )}
-                </div>
+                )}
             </div>
         </div>
     );
