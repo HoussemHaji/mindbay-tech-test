@@ -13,7 +13,7 @@ export function AuthorCard({ name, booksCount, imageSrc, rowLength }: AuthorCard
     const isSingleCardRow = rowLength === 1;
 
     return (
-        <Link href={`/authors/${encodeURIComponent(name)}`}>
+        <Link href={`/authors/${name}`}>
             <Card className={`hover:bg-accent transition-colors rounded-[1.25rem] border-[1.5px] border-[#ECECE3] ${isSingleCardRow ? "bg-[rgba(242,242,235,0.50)]" : "bg-[rgba(236,235,242,0.50)] border-[#EAE3EC]"}`} >
                 <CardContent
                     className={`flex gap-6 ${isSingleCardRow ? "flex-row items-center py-6" : "flex-col items-start py-3 "

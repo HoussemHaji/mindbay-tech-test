@@ -6,18 +6,26 @@ interface BooksState {
   bookLists: BookList[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
+  publishedDate: string | null;  // Added publishedDate to the state
 }
 
 const initialState: BooksState = {
   bookLists: [],
   status: 'idle',
   error: null,
+  publishedDate: null,
 };
 
-export const fetchBooksOverview = createAsyncThunk('books/fetchOverview', async (publishedDate?: string) => {
-  const response = await getBooksOverview(publishedDate);
-  return response.results.lists;
-});
+export const fetchBooksOverview = createAsyncThunk(
+  'books/fetchOverview',
+  async (publishedDate?: string) => {
+    const response = await getBooksOverview(publishedDate); 
+    return {
+      lists: response.results.lists,
+      publishedDate: response.results.published_date, 
+    };
+  }
+);
 
 const booksSlice = createSlice({
   name: 'books',
@@ -30,7 +38,8 @@ const booksSlice = createSlice({
       })
       .addCase(fetchBooksOverview.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.bookLists = action.payload;
+        state.bookLists = action.payload.lists;
+        state.publishedDate = action.payload.publishedDate; 
       })
       .addCase(fetchBooksOverview.rejected, (state, action) => {
         state.status = 'failed';

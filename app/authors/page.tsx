@@ -16,10 +16,12 @@ export default function AuthorsPage() {
         dispatch(fetchBooksOverview())
     }, [dispatch])
 
-    if (status === 'loading') return <p>Loading authors...</p>
+    if (status === 'loading')
+        return <div className="flex items-center justify-center h-screen">
+            <p className="text-gray-500">Loading authors...</p>
+        </div>
     if (status === 'failed') return <p>Error loading authors: {error}</p>
 
-    // Flatten and deduplicate authors
     const authors = bookLists.flatMap((list) =>
         list.books.map((book) => ({
             name: book.author,
@@ -28,7 +30,6 @@ export default function AuthorsPage() {
     )
     const uniqueAuthors = Array.from(new Map(authors.map((a) => [a.name, a])).values())
 
-    // Group authors into rows (1 item for even rows, 2 items for odd rows)
     const groupedAuthors: Array<Array<{ name: string; booksCount: number }>> = []
     for (let i = 0; i < uniqueAuthors.length;) {
         if (groupedAuthors.length % 2 === 0) {
