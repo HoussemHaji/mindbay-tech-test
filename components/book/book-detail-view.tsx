@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import { Book } from '@/types/books';
 
 export default function BookDetailView({
@@ -9,13 +9,9 @@ export default function BookDetailView({
     book: Book;
     publishedDate: string | null;
 }) {
-
-
-
     return (
         <div className="p-6 max-w-2xl mx-auto">
             <div className="flex flex-col items-center gap-6 mb-8">
-
                 <img
                     src={'/book.jpg'}
                     alt={book.title}
@@ -29,9 +25,7 @@ export default function BookDetailView({
                         🔥
                         <p>New York Times Best Seller</p>
                     </span>
-                    <span className="text-gray-500">
-                        Published: {publishedDate}
-                    </span>
+                    <span className="text-gray-500">Published: {publishedDate}</span>
                 </div>
                 <p className="text-gray-600 text-center">{book.description}</p>
                 <div className="text-sm text-gray-500 text-center">
